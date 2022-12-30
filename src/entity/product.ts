@@ -42,4 +42,12 @@ export default class Product {
     total(): number {
         return this._price;
     }
+
+    changeName(name: string): void {
+        this._name = name;
+    }
+
+    changePrice(price: number): void {
+        this._price = price;
+    }
 }

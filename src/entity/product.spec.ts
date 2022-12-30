@@ -32,4 +32,18 @@ describe("Product unit tests", () => {
 
         expect(isValid).toBe(true);
     });
+
+    it("should change product name", () => {
+        const product = new Product("p1", "product 1", 100);
+        product.changeName("product 2");
+
+        expect(product.name).toBe("product 2");
+    });
+
+    it("should change price", () => {
+        const product = new Product("p1", "product 1", 100);
+        product.changePrice(200);
+
+        expect(product.price).toBe(200);
+    });
 });
