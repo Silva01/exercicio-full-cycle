@@ -8,7 +8,7 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest',
     "^.+\\.(js|jsx)$": "babel-jest",
-    "^.+\\.(js|jsx)$": "@swc/jest",
+    "^.+\\.(ts|tsx)$": "@swc/jest",
   },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
