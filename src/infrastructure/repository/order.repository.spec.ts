@@ -52,8 +52,6 @@ describe("Order repository test", () => {
 
         const orderCreated = await OrderModel.findOne({ where: { id: order.id }, include: ["items"] });
 
-        console.log(orderCreated);
-
         expect(orderCreated).not.toBeNull();
         
         expect(orderCreated.toJSON()).toStrictEqual({
