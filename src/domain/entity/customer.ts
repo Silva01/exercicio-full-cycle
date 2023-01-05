@@ -67,4 +67,8 @@ export default class Customer {
     get address(): Address {
         return this._address;
     }
+
+    changeAddress(address: Address) {
+        this._address = address;
+    }
 }
