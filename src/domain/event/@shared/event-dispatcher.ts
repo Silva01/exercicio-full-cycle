@@ -6,7 +6,12 @@ export default class EventDispatcher implements EventDispatcherInterface {
     private eventHandlers: { [eventName: string]: EventHandlerInterface[] } = {};
 
     public notify(event: EventInterface): void {
-        
+        const eventHandlers = this.eventHandlers[event.eventName];
+        if (eventHandlers) {
+            eventHandlers.forEach((eventHandler) => {
+                eventHandler.handle(event);
+            });
+        }
     }
 
     public register(eventName: string, eventHandler: EventHandlerInterface): void {
@@ -18,7 +23,12 @@ export default class EventDispatcher implements EventDispatcherInterface {
     }
 
     public unregister(eventName: string, eventHandler: EventHandlerInterface): void {
-        
+        if (this.eventHandlers[eventName]) {
+            const index = this.eventHandlers[eventName].indexOf(eventHandler);
+            if(index !== -1) {
+                this.eventHandlers[eventName].splice(index, 1);
+            }
+        }
     }
 
     public unregisterAll(): void {
